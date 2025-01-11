@@ -1,11 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cooking Recipes Generator</title>
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" href="frontEnd.css">
+    
 </head>
+
 <body>
-    <h1>Hello</h1>
+    <h1>Recipe Finder</h1>
+    <div>
+        <input type="text" id="ingredientInput" class="ingredient-input" placeholder="Enter an ingredient">
+        <button type="button" id="addButton">Add</button>
+        <button type="button" id="deleteButton">Delete</button>
+        <button type="button" id="doneButton" style="display: none;">Done</button>
+    </div>
+    <ul id="ingredientsList"></ul>
+    <button type="button" id="submitButton">Find Recipes</button>
+    <textarea id="responseTextarea" readonly placeholder="Recipe suggestions will appear here..."></textarea>
+
+    <script src="frontEnd.js"></script>
 </body>
+
 </html>
