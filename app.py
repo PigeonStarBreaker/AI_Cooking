@@ -19,6 +19,8 @@
 from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
+from gemini_ai import gemini_food_recommendation
+
 app = Flask(__name__)
 CORS(app)
 
@@ -35,13 +37,15 @@ def find_recipes():
 
         # Get JSON data from the request
         data = request.get_json()
+        print(data)
         ingredients = data.get('ingredients', [])
+        print(ingredients)
 
         if not ingredients:
             return jsonify(message="No ingredients provided"), 400
 
-        return jsonify(message="Food successfully generated with ingredients: " + ', '.join(ingredients)), 200
-
+        # return jsonify(message="Food successfully generated with ingredients: " + ', '.join(ingredients)), 200
+        return jsonify(message=gemini_food_recommendation(ingredients))
     # For GET requests, simply return a welcome message or similar
     return jsonify(message="Send a POST request to generate recipes")
 
